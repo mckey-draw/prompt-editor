@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロンプトエディター</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>プロンプトエディター</h1>
+        <div class="editor-container">
+            <div class="toolbar">
+                <button id="openBtn">ファイルを開く</button>
+                <button id="saveBtn">保存</button>
+                <button id="clearBtn">クリア</button>
+            </div>
+            <textarea id="promptEditor" placeholder="プロンプトを入力してください..."></textarea>
+            <div class="character-count">タグ数: <span id="tagCount">0</span></div>
+            <div class="tags-container">
+                <div id="tagsPanel" class="tags-panel"></div>
+            </div>
+        </div>
+    </div>
+    <script src="tags.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

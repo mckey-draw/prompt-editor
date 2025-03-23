@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+}
+
+.editor-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+.toolbar {
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+#clearBtn {
+    background-color: #e74c3c;
+}
+
+#clearBtn:hover {
+    background-color: #c0392b;
+}
+
+#promptEditor {
+    width: 100%;
+    height: 300px;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#promptEditor:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.character-count {
+    margin-top: 0.5rem;
+    text-align: right;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.tags-container {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.tags-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+    min-height: 60px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+
+.tag-item {
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    cursor: move;
+    user-select: none;
+    white-space: pre-wrap;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+    height: 2.4em;
+}
+
+.tag-item:hover {
+    background-color: #d0d0d0;
+}
+
+.tag-item.sortable-ghost {
+    opacity: 0.5;
+}
+
+.tag-item.sortable-chosen {
+    background-color: #bdbdbd;
+} 
