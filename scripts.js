@@ -51,15 +51,25 @@ document.addEventListener('DOMContentLoaded', () => {
     openBtn.addEventListener('click', () => {
         const input = document.createElement('input');
         input.type = 'file';
-        input.accept = '.txt';
+        input.accept = '.txt,.json';  // テキストファイルとJSONファイルを許可
         
         input.onchange = (e) => {
             const file = e.target.files[0];
             if (file) {
                 const reader = new FileReader();
                 reader.onload = (e) => {
-                    promptEditor.value = e.target.result;
-                    updateTagsPanel(e.target.result);
+                    try {
+                        const content = e.target.result;
+                        promptEditor.value = content;
+                        updateTagsPanel(content);
+                    } catch (error) {
+                        console.error('ファイルの読み込みに失敗しました:', error);
+                        alert('ファイルの読み込みに失敗しました。');
+                    }
+                };
+                reader.onerror = (error) => {
+                    console.error('ファイルの読み込みエラー:', error);
+                    alert('ファイルの読み込みに失敗しました。');
                 };
                 reader.readAsText(file);
             }
