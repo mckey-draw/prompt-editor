@@ -1,0 +1,17 @@
+[33mcommit 92dd3b1ec4d47406c2e0896422c421f71eba89d8[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: mckey draw <mckey.draw@gmail.com>
+Date:   Sun Mar 23 22:51:42 2025 +0900
+
+    fix: ファイルを開く機能の改善とindex.htmlの修正
+
+[33mcommit 8fe6a5d3640b6e39e25ff37b7ea8ee3d8d1e6e02[m
+Author: mckey draw <mckey.draw@gmail.com>
+Date:   Sun Mar 23 22:50:03 2025 +0900
+
+    fix: ファイルを開く機能の改善
+
+[33mcommit 9ae99a8d88e64b3f4a2cde553d43f6683cd15551[m
+Author: mckey draw <mckey.draw@gmail.com>
+Date:   Sun Mar 23 22:41:10 2025 +0900
+
+    Initial commit: v0.1.0

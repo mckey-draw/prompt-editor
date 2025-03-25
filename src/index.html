@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロンプトエディター</title>
+</head>
+<body>
+    <div class="container">
+        <h1>プロンプトエディター</h1>
+        <div class="editor-container">
+            <div class="toolbar">
+                <button id="openBtn">ファイルを開く</button>
+                <button id="saveBtn">保存</button>
+                <button id="clearBtn">クリア</button>
+                <button id="undoBtn">元に戻す</button>
+            </div>
+            <textarea id="promptEditor" placeholder="プロンプトを入力してください..."></textarea>
+            <div class="tag-count">タグ数: <span id="tagCount">0</span></div>
+            <div class="tags-container">
+                <div id="tagsPanel"></div>
+            </div>
+            <div id="notification" class="notification"></div>
+        </div>
+    </div>
+</body>
+</html> 

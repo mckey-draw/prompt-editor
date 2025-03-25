@@ -1,0 +1,319 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #27ae60;
+    --error-color: #e74c3c;
+    --background-color: #f5f6fa;
+    --text-color: #2c3e50;
+    --border-color: #bdc3c7;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.editor-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.toolbar {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #357abd;
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#promptEditor {
+    width: 100%;
+    height: 200px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    resize: vertical;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.character-count {
+    margin-bottom: 15px;
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+.tags-container {
+    margin-top: 15px;
+    background-color: #f8f9fa;
+}
+
+#tagsPanel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    min-height: 50px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    align-items: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.tag-item {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    user-select: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    margin: 5px;
+    min-width: 40px;
+    height: 32px;
+    box-sizing: border-box;
+}
+
+/* 改行コードのタグ要素のスタイル */
+.tag-item.newline {
+    background-color: color-mix(in srgb, var(--primary-color) 70%, black) !important;
+}
+
+.tag-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+    padding: 4px;
+    flex-direction: row;
+}
+
+.tag-item:hover .tag-menu {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
+
+.tag-menu-button {
+    padding: 4px 8px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 12px;
+    color: #333;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
+.tag-menu-button:hover {
+    background-color: #f0f0f0;
+}
+
+.tag-menu-button.edit { color: #2196F3; }
+.tag-menu-button.copy { color: #4CAF50; }
+.tag-menu-button.paste { color: #FF9800; }
+.tag-menu-button.brackets { color: #9C27B0; }
+.tag-menu-button.square-brackets { color: #E91E63; }
+.tag-menu-button.weight-increment { color: #009688; }
+.tag-menu-button.weight-decrement { color: #009688; }
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-right: 4px;
+    padding-right: 4px;
+    border-right: 1px solid #ccc;
+}
+
+.control-group:last-of-type {
+    margin-right: 0;
+    border-right: none;
+}
+
+.control-label {
+    font-size: 12px;
+    color: #666;
+    padding: 0 2px;
+    min-width: 24px;
+    text-align: center;
+}
+
+.tag-text {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.tag-edit-input {
+    width: 100%;
+    padding: 2px 4px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: inherit;
+}
+
+.tag-item:hover {
+    background-color: #357abd;
+}
+
+.tag-item.sortable-ghost {
+    opacity: 0.5;
+}
+
+.tag-item.sortable-chosen {
+    background-color: #2979ff;
+}
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 4px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1000;
+}
+
+.notification.success {
+    background-color: var(--secondary-color);
+    opacity: 1;
+}
+
+.notification.error {
+    background-color: var(--error-color);
+    opacity: 1;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.fade-out {
+    animation: fadeOut 0.5s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .editor-container {
+        padding: 10px;
+    }
+    
+    .toolbar {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    button {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+    
+    #promptEditor {
+        font-size: 14px;
+    }
+    
+    .tag-item {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+}
+
+/* コンテキストメニューのスタイル */
+.context-menu {
+    position: fixed;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 5px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.context-menu button {
+    display: block;
+    width: 100%;
+    padding: 8px 15px;
+    border: none;
+    background: none;
+    color: var(--text-color);
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.context-menu button:hover {
+    background-color: #f0f0f0;
+    transform: none;
+}
+
+/* タグ数表示のスタイル */
+.tag-count {
+    margin-top: 10px;
+    color: var(--text-color);
+    font-size: 14px;
+} 

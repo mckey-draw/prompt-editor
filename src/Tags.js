@@ -1,7 +1,6 @@
 class Tag {
     constructor(text) {
         this.tag = text;
-        this.name = text;
         this.translation = null;
     }
 
@@ -12,22 +11,12 @@ class Tag {
 
     // タグの表示用テキストを取得
     getDisplayTag() {
-        return this.isNewline() ? '↵' : this.name;
+        return this.isNewline() ? '↵' : this.tag;
     }
 
     // タグの保存用テキストを取得
     getTag() {
         return this.tag;
-    }
-
-    // タグ名を設定
-    setName(name) {
-        this.name = name;
-    }
-
-    // タグ名を取得
-    getName() {
-        return this.name;
     }
 
     // 翻訳テキストを設定
@@ -89,4 +78,6 @@ class TagManager {
                 return result + tag + (index < array.length - 1 ? ',' : '');
             }, '');
     }
-} 
+}
+
+export { Tag, TagManager }; 
